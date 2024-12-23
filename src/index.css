@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Account for fixed header */
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+/* Section styles */
+section {
+  @apply scroll-mt-20; /* Offset for fixed header */
+}
+
+/* Fix for mobile navigation */
+.mobile-nav {
+  @apply fixed top-[72px] left-0 right-0 bg-white border-t border-gray-200;
+  height: calc(100vh - 72px);
+}
+
+/* Improve button accessibility */
+button:focus-visible {
+  @apply outline-none ring-2 ring-indigo-500 ring-offset-2;
+}
+
+/* Custom transitions */
+.custom-transition {
+  transition: all 300ms ease-in-out;
+}
+
+/* Improve form field visibility */
+input, textarea, select {
+  @apply bg-white;
+}
+
+/* Ensure content doesn't overlap with fixed header */
+main {
+  @apply pt-20; /* Height of the fixed header */
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
